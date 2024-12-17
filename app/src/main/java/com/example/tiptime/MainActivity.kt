@@ -86,8 +86,10 @@ fun TipTimeLayout() {
 
     Column(
         modifier = Modifier
-            .padding(40.dp)
-            .verticalScroll(rememberScrollState()),
+            .statusBarsPadding()
+            .padding(horizontal = 40.dp)
+            .verticalScroll(rememberScrollState())
+            .safeDrawingPadding(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
@@ -165,14 +167,13 @@ fun RoundUpTipRow(
     modifier: Modifier = Modifier
 ) {
     Row(
-        modifier = Modifier
-        .fillMaxWidth()
-        .size(48.dp),
+        modifier = modifier
+        .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(text = stringResource(R.string.round_up_tip))
         Switch(
-            modifier = modifier
+            modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentWidth(Alignment.End),
             checked = roundUp,
